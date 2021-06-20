@@ -4,31 +4,32 @@ import { CategoryTypes } from 'types/Category.type';
 import { useCategoryStyles } from '@/styles/category.style';
 
 interface categoryProps {
-  category: CategoryTypes;
+  item: CategoryTypes;
   navigate: Function;
 }
 
 const CategoryList: FC<categoryProps> = ({
-  category: { name, image, _id },
+  item: { name, image },
   navigate,
 }) => {
   const classes = useCategoryStyles();
   return (
     <li
-      className={`${classes.category} flex-center`}
+      className={`${classes.category} flex-center cursor`}
       onClick={() => navigate(name)}
     >
-      <div style={{ width: '250px', height: '250px', textAlign: 'center' }}>
-        <Image
-          src={image}
-          width={250}
-          height={245}
-          alt={name}
-          blurDataURL='/load.png'
-          placeholder='blur'
-          quality={100}
-        />
-      </div>
+      <Image
+        src={image}
+        width={230}
+        height={220}
+        alt={name}
+        objectFit='contain'
+        blurDataURL='/load.png'
+        placeholder='blur'
+        quality={100}
+        className={classes.image}
+      />
+      <p className={`${classes.categoryName} custom`}>{name}</p>
     </li>
   );
 };

@@ -22,14 +22,7 @@ company:xbox
 	image:https://m.media-amazon.com/images/I/81dWbLERrNL._AC_UY218_.jpg
 ]
 
-home
 
-[
-name:preethi eco plus
-image: https://m.media-amazon.com/images/I/71K1px-mEXL._AC_UY218_.jpg
-brand:preethi
-description: The Preethi ECO PLUS MG-138 Mixer Grinder features 550 Watt motor. The mixer comes with 100% stainless steel jars with flow breakers for fine grinding.
-The steel blades of the mixer grinder are machine ground and polished for maximum grinding efficiency.
 [
 	name: game desk
 	image:https://m.media-amazon.com/images/I/71NI5H-JUzS._AC_UY218_.jpg
@@ -46,6 +39,16 @@ name:'watch dogs',
 image:https://m.media-amazon.com/images/I/81WAdmdj+LL._AC_UY218_.jpg
 company: ps
 ]
+
+
+home
+
+[
+name:preethi eco plus
+image: https://m.media-amazon.com/images/I/71K1px-mEXL._AC_UY218_.jpg
+brand:preethi
+description: The Preethi ECO PLUS MG-138 Mixer Grinder features 550 Watt motor. The mixer comes with 100% stainless steel jars with flow breakers for fine grinding.
+The steel blades of the mixer grinder are machine ground and polished for maximum grinding efficiency.
 
 
 electronics
@@ -160,5 +163,60 @@ const data = [
       name: 'education',
       image:
         'https://images.pexels.com/photos/5088022/pexels-photo-5088022.jpeg?auto=compress&cs=tinysrgb',
+    },
+  ];
+
+
+
+
+  const data = [
+    {
+      image: 'https://i.ibb.co/7CQVJNm/blue-tank.png',
+      name: 'Blue Tanktop',
+      specificity: 'women',
+      price: 550,
+      category: '60cc110911ff72b0ada884b8',
+    },
+    {
+      image: 'https://i.ibb.co/4W2DGKm/floral-blouse.png',
+      name: 'Floral Blouse',
+      specificity: 'women',
+      price: 200,
+      category: '60cc110911ff72b0ada884b8',
+    },
+    {
+      image: 'https://i.ibb.co/KV18Ysr/floral-skirt.png',
+      name: 'Floral Dress',
+      specificity: 'women',
+      price: 500,
+      category: '60cc110911ff72b0ada884b8',
+    },
+    {
+      image: 'https://i.ibb.co/N3BN1bh/red-polka-dot-dress.png',
+      name: 'Red Dots Dress',
+      specificity: 'women',
+      price: 800,
+      category: '60cc110911ff72b0ada884b8',
+    },
+    {
+      image: 'https://i.ibb.co/KmSkMbH/striped-sweater.png',
+      name: 'Striped Sweater',
+      specificity: 'women',
+      price: 400,
+      category: '60cc110911ff72b0ada884b8',
+    },
+    {
+      image: 'https://i.ibb.co/v1cvwNf/yellow-track-suit.png',
+      name: 'Yellow Track Suit',
+      specificity: 'women',
+      price: 400,
+      category: '60cc110911ff72b0ada884b8',
+    },
+    {
+      image: 'https://i.ibb.co/qBcrsJg/white-vest.png',
+      name: 'White Blouse',
+      specificity: 'women',
+      price: 200,
+      category: '60cc110911ff72b0ada884b8',
     },
   ];

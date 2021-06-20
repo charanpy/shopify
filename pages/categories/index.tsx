@@ -7,9 +7,7 @@ import CategoryList from '@/components/category-list/category-list.container';
 const Categories = ({ categories }) => {
   return (
     <>
-      {categories.length && (
-        <CategoryList categories={JSON.parse(categories)} />
-      )}
+      <CategoryList categories={categories} />
     </>
   );
 };

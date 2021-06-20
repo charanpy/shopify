@@ -7,14 +7,23 @@ body {
   "Arial",
   sans-serif;
 }
-
+.capitalize{
+  text-transform: capitalize;
+}
+.roboto{
+  font-size: 1.2rem;
+  font-weight: 400;
+}
 .mb-1{
-  margin-bottom: 1rem;
+  margin-bottom: 1rem !important;
 }
 .mt-1 {
-  margin-top: 1rem;
+  margin-top: 1rem !important;
 }
 
+.mt-19{
+  margin-top: 56px;
+}
 a,.icon {
   color: #6618A8;
 }
@@ -22,14 +31,29 @@ a,.icon {
 * {
   box-sizing: border-box;
 }
+.header {
+  font-weight: 400;
+  letter-spacing: 0;
+  font-size: 1.7rem;
+}
+.cursor {
+  cursor: pointer !important;
+}
+.flex-even{
+  justify-content: space-evenly;
+}
 li {
   text-decoration: none;
+  list-style: none;
 }
 .flex-row {
   display: flex;
 }
 .mt-20 {
-  margin-top: 20vh !important;
+  margin-top: 75px !important;
+}
+.flex-between{
+  justify-content: space-between;
 }
 .flex-wrap {
   flex-wrap: wrap;
@@ -87,4 +111,12 @@ input::placeholder {
   z-index: 100000000 !important;
   position:absolute;
   right:0;
+}
+
+.mr {
+  margin-left: 65px !important;
+  @media screen and (max-width: 750px) and (orientation:portrait){
+    margin-left: 1rem !important;
+  }
+
 }

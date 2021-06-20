@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import Container from '@/layout/Container';
 import { CategoryTypes } from 'types/Category.type';
 import CategoryList from './category-list';
+import ArrayMap from '@/components/ArrayMap/array-map';
 
 interface categoryListProps {
   categories: CategoryTypes[];
@@ -12,19 +13,15 @@ const CategoryListContainer: FC<categoryListProps> = ({ categories }) => {
 
   return (
     <Container>
-      <ul
-        className='flex-row flex-center flex-wrap mt-20'
-        style={{ justifyContent: 'space-around' }}
-      >
-        {categories.length &&
-          categories.map((category: CategoryTypes) => (
-            <CategoryList
-              category={category}
-              navigate={handleCategoryClick}
-              key={category._id}
-            />
-          ))}
-      </ul>
+      <section className='mt-20 flex-column flex-center'>
+        <h1 className='mb-1'>CATEGORIES</h1>
+        <ArrayMap
+          className='flex-row flex-center flex-wrap mb-1'
+          data={categories}
+          navigate={handleCategoryClick}
+          Component={CategoryList}
+        />
+      </section>
     </Container>
   );
 };

@@ -4,7 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
-import Button from '@/components/Button/Button.component';
+// import Button from '@/components/Button/Button.component';
 
 const Header = ({ classes, handleDrawerOpen, open }) => {
   console.log('Header');
@@ -29,9 +29,9 @@ const Header = ({ classes, handleDrawerOpen, open }) => {
         </IconButton>
         <h1 className={`${classes.brand} custom f-300`}>Shopify</h1>
       </Toolbar>
-      <div className='flex-row flex-center'>
+      {/* <div className='flex-row flex-center'>
         <Button sm>Products</Button>
-      </div>
+      </div> */}
     </AppBar>
   );
 };
