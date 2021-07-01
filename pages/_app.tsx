@@ -1,14 +1,14 @@
-import { AppProps } from 'next/dist/next-server/lib/router/router';
 import React, { useEffect } from 'react';
-import { Provider } from 'next-auth/client';
 import Head from 'next/head';
-import { ThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AlertProvider from '../context/Alert/Alert';
-import '../styles/globals.scss';
-import theme from '../theme';
+import { Provider } from 'next-auth/client';
+import { AppProps } from 'next/dist/next-server/lib/router/router';
+import CartProvider from '@/context/Cart/Cart';
+import AlertProvider from '@/context/Alert/Alert';
 import AlertComponent from '../layout/Alert';
 import Navbar from '@/layout/Navbar/Navbar';
+import MuiThemeProvider from '@/components/theme/theme-provider';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import '../styles/globals.scss';
 
 function MyApp({ Component: Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -17,6 +17,7 @@ function MyApp({ Component: Component, pageProps }: AppProps) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
+
   return (
     <>
       <Head>
@@ -26,14 +27,16 @@ function MyApp({ Component: Component, pageProps }: AppProps) {
         />
       </Head>
       <Provider session={pageProps.session}>
-        <ThemeProvider theme={theme}>
+        <MuiThemeProvider>
           <CssBaseline />
-          <AlertProvider>
-            <Navbar />
-            <AlertComponent />
-            <Component {...pageProps} />
-          </AlertProvider>
-        </ThemeProvider>
+          <CartProvider>
+            <AlertProvider>
+              <Navbar />
+              <AlertComponent />
+              <Component {...pageProps} />
+            </AlertProvider>
+          </CartProvider>
+        </MuiThemeProvider>
       </Provider>
     </>
   );

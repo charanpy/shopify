@@ -220,3 +220,32 @@ const data = [
       category: '60cc110911ff72b0ada884b8',
     },
   ];
+
+[
+  {
+    name:"DSC Zooter Cricket Shoe",
+    image:"https://m.media-amazon.com/images/I/71ljtZlxVWL._AC_UL320_.jpg",
+    category:"60cc7d9ce6df3d3c6008b70b",
+    price:650
+  },{
+    image:"https://m.media-amazon.com/images/I/31vMeZZKsCS._AC_UL320_.jpg",
+    category:"60cc7d9ce6df3d3c6008b70b",
+    name:"Kookabura willow bat",
+    price: 480
+  },
+  {
+    image:"https://m.media-amazon.com/images/I/61ir+xzodWL._AC_UL320_.jpg",
+    category:"60cc7d9ce6df3d3c6008b70b",
+    name:"Voodania teslar",
+    price:600
+
+  },
+  {
+    image:"https://m.media-amazon.com/images/I/61Y4PkOyHHL._AC_UL320_.jpg",
+    category:"60cc7d9ce6df3d3c6008b70b",
+    name:"Wilson tennis",
+    price:2999
+
+
+  }
+]

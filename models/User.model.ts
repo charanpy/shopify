@@ -35,7 +35,7 @@ const UserSchema: Schema = new mongoose.Schema(
       type: String,
       required: function () {
         console.log(this.google, 'google');
-        return !this.google;
+        return !this.google || !this.googleId;
       },
       select: false,
       minLength: 8,

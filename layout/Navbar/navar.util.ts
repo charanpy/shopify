@@ -26,14 +26,6 @@ export const navData = [
     Icon: PaymentOutlined,
   },
   {
-    name: 'Wishlist',
-    Icon: FavoriteOutlined,
-  },
-  {
-    name: 'Recommendations',
-    Icon: WhatshotOutlined,
-  },
-  {
     name: 'Logout',
     Icon: ExitToAppOutlined,
   },

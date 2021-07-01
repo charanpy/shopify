@@ -22,6 +22,10 @@ const handleValidationError = (err) => {
   }
 };
 
+const handleCastError = () => {
+  return [400, 'No data found'];
+};
+
 export const handleMongoError = (e) => {
   console.log(e.name, e.code);
 
@@ -37,5 +41,8 @@ export const handleMongoError = (e) => {
 
   if (e?.name === 'ValidationError') {
     return handleValidationError(e);
+  }
+  if (e?.name === 'CastError') {
+    return handleCastError();
   }
 };

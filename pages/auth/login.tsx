@@ -4,6 +4,7 @@ import Container from '@/layout/Container';
 import { AlertContext } from '@/context/Alert/Alert';
 import LoginComponent from '@/components/login/login.component';
 import dbConnect from 'utils/db';
+import Seo from '@/components/seo/Seo';
 
 const Login = ({ error }) => {
   const { openAlert } = useContext(AlertContext);
@@ -15,9 +16,12 @@ const Login = ({ error }) => {
   }, []);
 
   return (
-    <Container>
-      <LoginComponent />
-    </Container>
+    <>
+      <Seo title='Login' url='/auth/login' />
+      <Container>
+        <LoginComponent />
+      </Container>
+    </>
   );
 };
 

@@ -8,11 +8,14 @@ export const providers = [
     name: 'login',
     authorize: async (credentials: LogResponse) => {
       const { email, password } = credentials;
+
       const [user, error] = await login(email, password);
+      console.log(user, 4445);
+
       if (error) {
         return Promise.reject(new Error(error || 'Please fill all fields'));
       }
-      user['email'] = true;
+      user['emailLogin'] = true;
       return user;
     },
   }),

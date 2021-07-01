@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
-import Image from 'next/image';
+import ImageComponent from '@/components/Image/Image';
 import { RecommendationProduct } from '@/types/Product.type';
 import { useCategoryStyles } from '@/styles/category.style';
 import { Typography } from '@material-ui/core';
+import { currencyFormat } from '@/utils/currency-formatter';
 
 interface recommendationProps {
   item: RecommendationProduct;
@@ -17,13 +18,10 @@ const Recommendation: FC<recommendationProps> = ({ item, handleClick }) => {
       onClick={() => handleClick(item._id)}
       className={`${classes.recommendation} cursor flex-column`}
     >
-      <Image
+      <ImageComponent
         width={300}
         height={300}
         src={item.image}
-        objectFit='contain'
-        placeholder='blur'
-        blurDataURL='/load.png'
         alt={item.name || 'product-image'}
         className={classes.image}
       />
@@ -31,7 +29,7 @@ const Recommendation: FC<recommendationProps> = ({ item, handleClick }) => {
         {item.name}-
       </Typography>
       <Typography variant='subtitle1' style={{ textAlign: 'center' }}>
-        ₹{new Intl.NumberFormat().format(item.price) || 500}
+        ₹{currencyFormat(item?.price)}
       </Typography>
     </li>
   );

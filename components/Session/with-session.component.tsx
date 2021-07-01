@@ -8,9 +8,13 @@ export function withSession<P>(Component: ComponentType<P>, redirect = false) {
     if (loading || typeof window === 'undefined' || window === 'undefined') {
       return null;
     }
-    console.log(session);
+    console.log(session, redirect);
 
-    if (!loading && session?.user && redirect) router.push('/');
+    if (!loading && session?.user && redirect) {
+      console.log('redirectinbg');
+      router.push('/');
+    }
+
     return <Component {...props} session={session} />;
   };
 }

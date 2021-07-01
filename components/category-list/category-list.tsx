@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
-import Image from 'next/image';
+import ImageComponent from '../Image/Image';
 import { CategoryTypes } from 'types/Category.type';
 import { useCategoryStyles } from '@/styles/category.style';
+import { Typography } from '@material-ui/core';
 
 interface categoryProps {
   item: CategoryTypes;
@@ -9,27 +10,25 @@ interface categoryProps {
 }
 
 const CategoryList: FC<categoryProps> = ({
-  item: { name, image },
+  item: { name, image, _id },
   navigate,
 }) => {
   const classes = useCategoryStyles();
   return (
     <li
       className={`${classes.category} flex-center cursor`}
-      onClick={() => navigate(name)}
+      onClick={() => navigate(_id, name)}
     >
-      <Image
+      <ImageComponent
         src={image}
         width={230}
         height={220}
         alt={name}
-        objectFit='contain'
-        blurDataURL='/load.png'
-        placeholder='blur'
-        quality={100}
         className={classes.image}
       />
-      <p className={`${classes.categoryName} custom`}>{name}</p>
+      <Typography variant='subtitle1' className='capitalize roboto'>
+        {name}
+      </Typography>
     </li>
   );
 };

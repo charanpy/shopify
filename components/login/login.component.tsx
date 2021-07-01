@@ -5,7 +5,7 @@ import InputComponent from '@/components/Input/Input.component';
 import Button from '@/components/Button/Button.component';
 import GoogleSignIn from '@/components/Google/Google-signIn';
 import AuthHeader from '@/components/AuthHeader/auth-header';
-import axios from 'axios';
+import Link from 'next/link';
 
 const LoginComponent = () => {
   const emailRef = useRef(null);

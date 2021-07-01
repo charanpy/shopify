@@ -10,6 +10,7 @@ import AuthHeader from '@/components/AuthHeader/auth-header';
 import InputComponent from '@/components/Input/Input.component';
 import Button from '@/components/Button/Button.component';
 import axios from 'axios';
+import Seo from '@/components/seo/Seo';
 
 const VerifyEmail = ({ email, user }) => {
   const { openAlert } = useContext(AlertContext);
@@ -66,18 +67,21 @@ const VerifyEmail = ({ email, user }) => {
       });
   };
   return (
-    <Container>
-      <AuthHeader page='Register' header={`Welcome ${email && email}`} />
-      <form onSubmit={onRegister} className='flex-column flex-center'>
-        <InputComponent type='name' name='Username' ref={usernameRef}>
-          <AccountCircle />
-        </InputComponent>
-        <InputComponent type='password' name='Password' ref={passwordRef}>
-          <Lock />
-        </InputComponent>
-        <Button>Create Account</Button>
-      </form>
-    </Container>
+    <>
+      <Seo title='Activate Account' url='/activate/user' />
+      <Container>
+        <AuthHeader page='Register' header={`Welcome ${email && email}`} />
+        <form onSubmit={onRegister} className='flex-column flex-center'>
+          <InputComponent type='name' name='Username' ref={usernameRef}>
+            <AccountCircle />
+          </InputComponent>
+          <InputComponent type='password' name='Password' ref={passwordRef}>
+            <Lock />
+          </InputComponent>
+          <Button>Create Account</Button>
+        </form>
+      </Container>
+    </>
   );
 };
 

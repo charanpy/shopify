@@ -4,3 +4,17 @@ export interface RecommendationProduct {
   image: string;
   price: number;
 }
+
+export interface Product extends RecommendationProduct {
+  category: string;
+  stock: string;
+  specificity: string;
+  description?: string;
+}
+
+export interface CartProduct extends Product, RecommendationProduct {}
+
+export interface Cart {
+  productId: CartProduct;
+  userId?: string;
+}

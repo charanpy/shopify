@@ -5,19 +5,30 @@ import useStyles from '../../styles/style';
 import { TextField } from '@material-ui/core';
 
 const InputComponent = React.forwardRef<HTMLInputElement, TextInput>(
-  ({ name, type, children }, ref) => {
+  (props, ref) => {
+    const {
+      name,
+      type,
+      required = true,
+      defaultValue,
+      children = null,
+    } = props;
     const classes = useStyles();
+
     return (
       <TextField
-        required
+        required={required}
         label={name}
+        defaultValue={defaultValue}
         inputRef={ref}
         type={type}
         className={classes.textInput}
         InputProps={{
-          endAdornment: (
-            <InputAdornment position='end'>{children}</InputAdornment>
-          ),
+          ...(children && {
+            endAdornment: (
+              <InputAdornment position='end'>{children}</InputAdornment>
+            ),
+          }),
         }}
         inputProps={{
           ...(type === 'password' && { minLength: 8 }),

@@ -1,12 +1,22 @@
-import axios from 'axios';
-import { CategoryTypes } from './../types/Category.type';
+import Category from '@/models/Category.model';
+import dbConnect from '@/utils/db';
 
 export const getCategory = async () => {
   try {
-    const { data } = await axios.get(`${process.env.URL}/api/categories`);
-    return data;
+    const res = await fetch(`/api/categories`);
+    return await res.json();
   } catch (error) {
     console.log(error);
+    return [];
+  }
+};
+
+export const getCategories = async () => {
+  try {
+    await dbConnect();
+    const categories = await Category.find({}).select('_id name image').lean();
+    return categories;
+  } catch (error) {
     return [];
   }
 };

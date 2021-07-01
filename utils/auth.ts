@@ -1,3 +1,4 @@
+import Profile from '@/models/Profile.model';
 import bcrypt from 'bcryptjs';
 import User from '../models/User.model';
 import {
@@ -9,7 +10,7 @@ import {
 export const isUser = async (email: string) => {
   try {
     const user = await User.findOne({ email }).select(
-      'password _id name email'
+      '_id email password name google googleId'
     );
     return user;
   } catch (error) {
@@ -45,9 +46,12 @@ export const hashedPassword = async (password: string) =>
 export const login = async (email: string, password: string) => {
   if (!email || !password) return [null, 'Please fill all fields'];
   const userData = await isUser(email);
+  console.log(userData, 66);
 
   if (!userData) return [null, 'Invalid credentials'];
   const isValidPassword = await comparePassword(password, userData.password);
+  console.log(isValidPassword);
+
   if (!isValidPassword) return [null, 'Invalid credentials'];
 
   return [userData, null];
@@ -56,6 +60,9 @@ export const login = async (email: string, password: string) => {
 export const createUser = async (data) => {
   try {
     const user = await User.create(data);
+    if (user['_id']) {
+      await Profile.create({ userId: user['_id'] });
+    }
     return user;
   } catch (error) {
     console.log(error);

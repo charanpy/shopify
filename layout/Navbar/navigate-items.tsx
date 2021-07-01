@@ -10,7 +10,12 @@ import {
 import { signOut } from 'next-auth/client';
 
 const NavigateItems = ({ listStyle, iconStyle, menu }) => {
-  const [selected, setSelected] = React.useState('/');
+  const [selected, setSelected] = React.useState(null);
+  React.useEffect(() => {
+    const path = router.pathname;
+    const route = path === '/' ? '/' : path.split('/')[1];
+    setSelected(() => route);
+  }, []);
 
   const navigate = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
@@ -28,7 +33,7 @@ const NavigateItems = ({ listStyle, iconStyle, menu }) => {
       return;
     }
     setSelected(() => pathName);
-    router.push(pathName);
+    router.push(path === '/' ? '/' : `/${pathName}`);
   };
   return (
     <List className={listStyle}>

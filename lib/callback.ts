@@ -1,4 +1,5 @@
 import { isUser as getUser, createUser } from '../utils/auth';
+import { getUserId } from './user';
 
 const signInCallback = async (user, account, profile) => {
   if (account.type === 'credentials') return Promise.resolve(true);
@@ -10,6 +11,7 @@ const signInCallback = async (user, account, profile) => {
   try {
     const { email, name, id } = user;
     const isUser = await getUser(email);
+    console.log(isUser);
     if (isUser?.googleId) return Promise.resolve(true);
     if (!isUser) {
       await createUser({
@@ -37,9 +39,15 @@ export const token = async (token, user) => {
 };
 
 export const session = async (session, user) => {
-  console.log(user);
-
-  delete user.user.user?.password;
+  // console.log(user, 99);
+  if (!user.user.password) {
+    const id = await getUserId(user.user.id);
+    user.user['_id'] = id;
+  }
+  if (user.user.password) {
+    user.user['emailLogin'] = true;
+    user.user.password = null;
+  }
   session.user = user.user;
   return Promise.resolve(session);
 };

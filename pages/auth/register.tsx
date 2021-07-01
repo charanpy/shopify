@@ -9,6 +9,7 @@ import GoogleSignIn from '@/components/Google/Google-signIn';
 import { AlertContext } from '@/context/Alert/Alert';
 import { isEmailValid } from 'utils/credential-validation';
 import { withSession } from '@/components/Session/with-session.component';
+import Seo from '@/components/seo/Seo';
 
 const Register: React.FC = () => {
   const emailRef = React.useRef(null);
@@ -36,24 +37,27 @@ const Register: React.FC = () => {
   };
 
   return (
-    <Container>
-      <AuthHeader page='Register' />
-      {disable && (
-        <div className='mb-1'>
-          <p className='custom success f-500'>
-            Confirmation link is sent to{' '}
-            <a href='https://gmail.com'>{emailRef?.current?.value}</a>
-          </p>
-        </div>
-      )}
-      <form className='flex-column flex-center' onSubmit={handleRegister}>
-        <InputComponent name='Email' type='email' ref={emailRef}>
-          <MailOutline />
-        </InputComponent>
-        <Button disabled={disable}>Send Mail</Button>
-      </form>
-      <GoogleSignIn />
-    </Container>
+    <>
+      <Seo title='Register' url='/auth/register' />
+      <Container>
+        <AuthHeader page='Register' />
+        {disable && (
+          <div className='mb-1'>
+            <p className='custom success f-500'>
+              Confirmation link is sent to{' '}
+              <a href='https://gmail.com'>{emailRef?.current?.value}</a>
+            </p>
+          </div>
+        )}
+        <form className='flex-column flex-center' onSubmit={handleRegister}>
+          <InputComponent name='Email' type='email' ref={emailRef}>
+            <MailOutline />
+          </InputComponent>
+          <Button disabled={disable}>Send Mail</Button>
+        </form>
+        <GoogleSignIn />
+      </Container>
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
-const bcrypt = require('bcryptjs');
 import { Request, Response } from 'express';
+const bcrypt = require('bcryptjs');
 import dbConnect from 'utils/db';
 import { handleMongoError } from '../../../utils/mongo-error';
 import { sanitizeUserInput, createUser } from '../../../utils/auth';
@@ -17,7 +17,6 @@ const registerHandler = async (req: Request, res: Response) => {
       password: hashPassword,
       name: username,
     });
-
     return res.status(201).json(user);
   } catch (error) {
     console.log(error);

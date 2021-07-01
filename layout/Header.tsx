@@ -1,10 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import MenuIcon from '@material-ui/icons/Menu';
-import IconButton from '@material-ui/core/IconButton';
-// import Button from '@/components/Button/Button.component';
+import { AppBar, Toolbar, IconButton } from '@material-ui/core';
+import { Menu } from '@material-ui/icons';
+import CartCount from './cart';
 
 const Header = ({ classes, handleDrawerOpen, open }) => {
   console.log('Header');
@@ -25,13 +23,13 @@ const Header = ({ classes, handleDrawerOpen, open }) => {
             [classes.hide]: open,
           })}
         >
-          <MenuIcon />
+          <Menu />
         </IconButton>
         <h1 className={`${classes.brand} custom f-300`}>Shopify</h1>
       </Toolbar>
-      {/* <div className='flex-row flex-center'>
-        <Button sm>Products</Button>
-      </div> */}
+      <div className='flex-row'>
+        <CartCount />
+      </div>
     </AppBar>
   );
 };
