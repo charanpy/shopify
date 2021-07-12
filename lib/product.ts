@@ -15,7 +15,9 @@ export const homePageRecommendation = async () => {
 
 export const getProductById = async (productId: string) => {
   try {
-    const res = await fetch(`/api/products/${productId}`);
+    const res = await fetch(
+      `${process.env.NEXT_URL}/api/products/${productId}`
+    );
     const { product } = await res.json();
     console.log('heeeeee', product);
     if (!product || !product?.name) {
@@ -35,7 +37,9 @@ export const getProductByCategoryId = async (
   staticPage = false
 ) => {
   try {
-    const res = await fetch(`/api/products/category/${categoryId}`);
+    const res = await fetch(
+      `${process.env.NEXT_URL}/api/products/category/${categoryId}`
+    );
     const products = (await res.json()).products;
     if (staticPage) {
       return products || [];
