@@ -25,6 +25,8 @@ export const getProductById = async (productId: string) => {
 
     return dataProps('product', product);
   } catch (e) {
+    console.log(e);
+
     return notFound();
   }
 };
