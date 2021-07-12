@@ -15,13 +15,12 @@ export const homePageRecommendation = async () => {
 
 export const getProductById = async (productId: string) => {
   try {
-    const {
-      data: { product },
-    } = await axios.get(`/api/products/${productId}`);
-    // console.log('heeeeee', product);
-    // if (!product || !product?.name) {
-    //   return notFound();
-    // }
+    const res = await fetch(`/api/products/${productId}`);
+    const { product } = await res.json();
+    console.log('heeeeee', product);
+    if (!product || !product?.name) {
+      return notFound();
+    }
 
     return dataProps('product', product);
   } catch (e) {
