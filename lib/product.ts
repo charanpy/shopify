@@ -17,7 +17,7 @@ export const getProductById = async (productId: string) => {
   try {
     const {
       data: { product },
-    } = await axios.get(`${process.env.URL}/api/products/${productId}`);
+    } = await axios.get(`/api/products/${productId}`);
     if (!product || !product?.name) {
       return notFound();
     }
