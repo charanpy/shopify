@@ -18,10 +18,10 @@ export const getProductById = async (productId: string) => {
     const {
       data: { product },
     } = await axios.get(`/api/products/${productId}`);
-    console.log('heeeeee', product);
-    if (!product || !product?.name) {
-      return notFound();
-    }
+    // console.log('heeeeee', product);
+    // if (!product || !product?.name) {
+    //   return notFound();
+    // }
 
     return dataProps('product', product);
   } catch (e) {
