@@ -24,7 +24,9 @@ export const getServerSideProps = async (
   const {
     query: { productId },
   } = context;
-
+  console.log('====================================');
+  console.log(productId);
+  console.log('====================================');
   if (!productId) {
     return notFound();
   }
