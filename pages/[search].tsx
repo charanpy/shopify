@@ -7,7 +7,6 @@ import NotFound from '@/components/not-found/not-found';
 import { capitalize } from '@/utils/capitalize';
 
 const SearchProduct = ({ products, searchTerm }) => {
-  console.log(products);
   return (
     <>
       <Seo title={capitalize(searchTerm)} url={`/${searchTerm}`} />
