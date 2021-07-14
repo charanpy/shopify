@@ -57,7 +57,7 @@ export const searchProduct = async (searchTerm: string) => {
   try {
     const {
       data: { products },
-    } = await axios.get(`${process.env.URL}/api/search/${searchTerm}`);
+    } = await axios.get(`${process.env.NEXT_URL}/api/search/${searchTerm}`);
     return products;
   } catch (error) {
     console.log(error);
