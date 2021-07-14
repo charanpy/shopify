@@ -23,9 +23,6 @@ const Home = (props) => {
 };
 
 export const getStaticProps = async () => {
-  // const categories: CategoryTypes[] | boolean = await getCategory();
-
-  // console.log(men, 22);
   const categories = await getCategories();
   const { men, women, electronics, games } = await homePage();
 
