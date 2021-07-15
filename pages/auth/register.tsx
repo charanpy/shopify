@@ -20,7 +20,6 @@ const Register: React.FC = () => {
     const email = emailRef?.current?.value;
 
     e.preventDefault();
-    console.log('reg', email);
     if (!email || (email && isEmailValid(email)))
       openAlert({ title: 'Invalid email' });
 
